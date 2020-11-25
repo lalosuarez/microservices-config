@@ -1,5 +1,7 @@
 server:
   port: ${GATEWAY_SERVICE_PORT:9999}
+  servlet:
+    contextPath: /api/v1
 
 spring:
   profiles: default
