@@ -27,8 +27,8 @@ zuul:
   routes:
     orders:
       path: /api/v1/orders/**
-      url: http://order-service/v1/orders
-      # serviceId: beta-root
+      # url: http://order-service/v1/orders
+      serviceId: order-service
       # strip-prefix: false
       sensitive-headers: Cookie,Set-Cookie
 
