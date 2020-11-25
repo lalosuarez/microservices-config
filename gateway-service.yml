@@ -22,3 +22,16 @@ spring:
 #           thread:
 #             timeoutInMilliseconds: 70000
 #           # strategy: SEMAPHORE
+
+zuul:
+  routes:
+    orders:
+      path: /api/v1/orders/**
+      url: http://order-service/v1/orders
+      # serviceId: beta-root
+      # strip-prefix: false
+      sensitive-headers: Cookie,Set-Cookie
+
+ribbon:
+  eureka:
+    enabled: true
