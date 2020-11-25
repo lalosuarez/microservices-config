@@ -16,11 +16,11 @@ spring:
 #     resource:
 #       userInfoUri: http://localhost:9191/uaa/user
 
-# hystrix:
-#   command:
-#     default:
-#       execution:
-#         isolation:
-#           thread:
-#             timeoutInMilliseconds: 70000
-#           # strategy: SEMAPHORE
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+            strategy: SEMAPHORE
