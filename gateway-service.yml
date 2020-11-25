@@ -1,0 +1,24 @@
+server:
+  port: ${GATEWAY_SERVICE_PORT:9999}
+
+spring:
+  profiles: default
+#   cloud:
+#     stream:
+#       bindings:
+#         output:
+#           destination: reservations
+
+# security:
+#   oauth2:
+#     resource:
+#       userInfoUri: http://localhost:9191/uaa/user
+
+# hystrix:
+#   command:
+#     default:
+#       execution:
+#         isolation:
+#           thread:
+#             timeoutInMilliseconds: 70000
+#           # strategy: SEMAPHORE
