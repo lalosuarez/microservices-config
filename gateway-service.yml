@@ -11,10 +11,10 @@ spring:
 #         output:
 #           destination: reservations
 
-# security:
-#   oauth2:
-#     resource:
-#       userInfoUri: http://localhost:9191/uaa/user
+security:
+  oauth2:
+    resource:
+      userInfoUri: http://localhost:9191/uaa/user
 
 hystrix:
   command:
@@ -24,3 +24,27 @@ hystrix:
           thread:
             timeoutInMilliseconds: 5000
             strategy: SEMAPHORE
+
+spring.kafka:
+  bootstrap-servers: localhost:9092
+
+# https://cloud.spring.io/spring-cloud-static/spring-cloud-stream-binder-kafka/2.1.0.RC3/multi/multi__kafka_streams_binder.html
+#
+# defaults
+spring.cloud.stream.kafka:
+  binder:
+    autoCreateTopics: false
+    replicationFactor: 1
+
+spring.cloud.stream.kafka.streams.binder:
+  configuration:
+    default.key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+    default.value.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+    commit.interval.ms: 1000
+
+spring.cloud.stream.bindings:
+  #
+  # ordersOutFallback
+  orders-out-fallback:
+    destination: orders-fallback
+    producer.header-mode: headers

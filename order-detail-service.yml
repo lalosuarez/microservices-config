@@ -1,5 +1,5 @@
 server:
-  port: ${ORDER_SERVICE_PORT:8084}
+  port: ${ORDER_DETAIL_SERVICE_PORT:8085}
   servlet:
     contextPath: /v1
 
@@ -28,7 +28,27 @@ spring.cloud.stream.kafka.streams.binder:
 
 spring.cloud.stream.bindings:
   #
-  # ordersOut
-  orders-out:
+  # ordersIn
+  orders-in:
     destination: orders
+    consumer.header-mode: headers
+  #
+  # ordersInFallback
+  orders-in-fallback:
+    destination: orders-fallback
     producer.header-mode: headers
+  #
+  # order validation out
+  orders-validation-out:
+    destination: orders-validation
+    producer.use-native-encoding: true
+    producer.header-mode: headers
+    content-type: application/json
+  #
+  # order validation in
+  orders-validation-in:
+    destination: orders-validation
+    consumer.use-native-encoding: true
+    consumer.header-mode: headers
+    group: orders-validation
+    content-type: application/json
