@@ -31,12 +31,10 @@ spring.kafka:
 # https://cloud.spring.io/spring-cloud-static/spring-cloud-stream-binder-kafka/2.1.0.RC3/multi/multi__kafka_streams_binder.html
 #
 # defaults
-spring.cloud.stream.kafka:
-  binder:
-    autoCreateTopics: true
-    replicationFactor: 1
-
 spring.cloud.stream.kafka.streams.binder:
+  binder:
+    autoCreateTopics: false
+    replicationFactor: 1
   configuration:
     default.key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
     default.value.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
