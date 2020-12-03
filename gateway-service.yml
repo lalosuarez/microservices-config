@@ -44,5 +44,5 @@ spring.cloud.stream.bindings:
   #
   # ordersOutFallback
   orders-out-fallback:
-    destination: orders-fallback
+    destination: orders
     producer.header-mode: headers
